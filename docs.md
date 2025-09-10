@@ -7,11 +7,15 @@
 
 ## Scrape Wiki list
 - in `populateDB.py`
+- set user-agent header so wiki doesn't reject
 - use Wiki List of brightest stars since all included have their own page
 - (but there is ony 96, maybe update this in future)
 - `response = requests.get(URL)` to get HTML of page
 - use BeautifulSoup to parse into a Python object tree
 - from soup object find the table on page
+  - under Table heading
+  - fourth table after that
+  - note: improve way of finding this in future
 - find anchor tag to extract name and link
 - strip down to page name to be used as `https://en.wikipedia.org" + star_link["href"]`
 
