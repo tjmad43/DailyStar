@@ -77,7 +77,7 @@ if summary['extract']:
 if summary['url']:
     caption += f"💫 Read more: <a href='{summary['url']}'>{summary['url']}</a>"
 
-tags = ["stars", "astronomy", "space", "daily star", "studyblr"]
+tags = ["stars", "astronomy", "space", "daily star", "studyblr", "beep boop: daily star bot"]
 
 
 # Post to tumblr - photo or text post
