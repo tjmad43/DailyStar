@@ -60,9 +60,24 @@
 - get title, description, extract, url and thumbnail for star
 
 ## Make post
-
-
-## Keep track of posted stars
-
+- photo post with main photo of page, a title, summary, and link to the page
+- pages may possibly not have thumbnail so if not, make text post with same structure but no photo
+- `state="published"` posts straight away, can queue or save as draft instead
+- tags: list of strings
 
 ## Automate
+to post automatically once a day:
+- `state="queue"`
+- go to queue on tumblr settings to choose how frequently and when to post
+- run `bot.py` however many times to fill up queue
+**or** run bot once a day with a cron job:
+- in terminal: 
+- `crontab -e`
+- `0 11 * * * /Users/tabmad/opt/anaconda3/bin/python3 /Users/tabmad/DailyStar/bot.py >> /Users/tabmad/DailyStar/bot.log 2>&1`
+- runs once a day at 11am and outputs a log file
+- save & exit
+- check with `crontab -l`
+
+## Reset DB
+- in testing the post, lots of stars set to `posted` when they weren't published
+- `resetdb.py` resets all to unposted

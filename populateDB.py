@@ -36,7 +36,7 @@ for row in table.find_all("tr")[1:]:
             star_name = star_link.text.strip()
             star_url = "https://en.wikipedia.org" + star_link["href"]
             print(star_name, star_url)
-
+            stars.append((star_name, star_url))
 
 
 # --- Database ---
@@ -56,7 +56,9 @@ CREATE TABLE IF NOT EXISTS stars (
 conn.commit()
 
 # Insert star data
-cursor.executemany("INSERT INTO stars (name, url) VALUES (?, ?)", stars)
+for name, url in stars:
+    cursor.execute("INSERT INTO stars (name, url) VALUES (?, ?)", (name, url))
+
 conn.commit()
 
 # Check what was added

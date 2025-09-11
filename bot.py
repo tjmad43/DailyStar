@@ -26,6 +26,11 @@ def get_random_star():
     cursor.execute("SELECT id, name, url FROM stars WHERE posted = 0 ORDER BY RANDOM() LIMIT 1")
     star = cursor.fetchone()
 
+    if star is None:
+        print("No unposted stars left in the database!")
+        conn.close()
+        exit()
+
     star_id, star_name, star_url = star
 
     # Mark as posted
@@ -57,3 +62,38 @@ def get_summary(title):
     
 
 # --- Make post ---
+star = get_random_star()
+summary = get_summary(star[1])
+
+# Post body
+caption = f"⭐️ <b>Your daily star: ✨ {summary['title']}</b> ✨"
+if summary['description']:
+    caption += f" – {summary['description']}"
+caption += "<br><br>"
+
+if summary['extract']:
+    caption += summary['extract'].replace("\n", "<br>") + "<br><br>"
+
+if summary['url']:
+    caption += f"💫 Read more: <a href='{summary['url']}'>{summary['url']}</a>"
+
+tags = ["stars", "astronomy", "space", "daily star", "studyblr"]
+
+
+# Post to tumblr - photo or text post
+if summary["thumbnail"]:
+    response = client.create_photo(
+        BLOG_NAME,
+        state="queue", 
+        caption=caption,
+        source=summary["thumbnail"],
+        tags=tags
+    )
+else:
+    response = client.create_text(
+        BLOG_NAME,
+        state="queue",
+        title=summary["title"],
+        body=caption,
+        tags=tags
+    )
