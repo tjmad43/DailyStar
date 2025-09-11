@@ -72,6 +72,7 @@
 - get title, description, extract, url and thumbnail for star
 
 ## Make post
+- pytumblr docs: https://github.com/tumblr/pytumblr
 - photo post with main photo of page, a title, summary, and link to the page
 - pages may possibly not have thumbnail so if not, make text post with same structure but no photo
 - `state="published"` posts straight away, can queue or save as draft instead
