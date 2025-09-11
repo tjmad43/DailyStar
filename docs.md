@@ -1,5 +1,17 @@
 # Daily Star Tumblr Bot
 
+- [Daily Star Tumblr Bot](#daily-star-tumblr-bot)
+  - [Set up venv](#set-up-venv)
+  - [Scrape Wiki list](#scrape-wiki-list)
+    - [Database](#database)
+  - [Tumblr authentication](#tumblr-authentication)
+  - [Get star from database](#get-star-from-database)
+  - [Get article info from Wiki API](#get-article-info-from-wiki-api)
+  - [Make post](#make-post)
+  - [Automate](#automate)
+  - [Reset DB](#reset-db)
+
+
 ## Set up venv
 - `python -m venv venv`
 - `source venv/bin/activate`
