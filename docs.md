@@ -23,6 +23,7 @@
 - use SQLite database to store star links
 - open connection to `stars.db`
 - create table
+  - with a "posted" column to see if a star has been done already
 - add list of stars to it
 - print out to check
 - close connection
@@ -45,8 +46,18 @@
   - take verifier and paste back into script
   - OAuth token and secret will be printed, paste into .env
 
-## Get article info from Wiki API
+## Get star from database
+- see `get_random_star()`
+- open db connection
+- select star that hasn't been posted already (posted=0)
+- mark that star as posted now
+- close conection and return star
 
+## Get article info from Wiki API
+- see `get_summary(title)`
+- call `https://en.wikipedia.org/api/rest_v1/page/summary/{TITLE}` to get JSON response with page info
+- needs header like previously
+- get title, description, extract, url and thumbnail for star
 
 ## Make post
 

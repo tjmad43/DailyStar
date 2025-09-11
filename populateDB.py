@@ -49,7 +49,8 @@ cursor.execute("""
 CREATE TABLE IF NOT EXISTS stars (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
-    url TEXT NOT NULL
+    url TEXT NOT NULL,
+    posted INTEGER DEFAULT 0
 )
 """)
 conn.commit()
