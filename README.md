@@ -11,7 +11,7 @@ View at https://dailystarreport.tumblr.com
 - Uses the Wikipedia API to fetch star summaries and images
 - Posts daily to Tumblr via the Tumblr API
 - Supports tags, bold text, and line breaks in posts
-- Can be scheduled with `cron` (Linux/macOS) or Task Scheduler (Windows)
+- Can be scheduled with `cron` (Linux/macOS) or Task Scheduler (Windows), or with Tumblr queue
 
 ---
 
